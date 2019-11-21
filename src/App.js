@@ -3,7 +3,7 @@ import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound";
 import NoteView from "./components/NoteView";
 import FolderView from "./components/FolderView";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, Link, withRouter } from "react-router-dom";
 import Context from "./Context";
 import AddFolder from "./components/AddFolder";
 import "./App.css";
@@ -72,11 +72,23 @@ export class App extends Component {
     });
   };
 
+  addNewFolder = newFolderData => {
+    this.setState(
+      {
+        folders: [...this.state.folders, newFolderData]
+      },
+      () => this.props.history.push("/")
+    );
+  };
+
   render() {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
-      delete: this.delete
+      delete: this.delete,
+      fetchFolders: this.fetchFolders,
+      fetchNotes: this.fetchNotes,
+      changeAppFolders: this.addNewFolder
     };
 
     return (
@@ -104,4 +116,4 @@ export class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
