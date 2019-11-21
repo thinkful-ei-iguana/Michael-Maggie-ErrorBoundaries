@@ -5,6 +5,7 @@ import NoteView from "./components/NoteView";
 import FolderView from "./components/FolderView";
 import { Route, Switch, Link } from "react-router-dom";
 import Context from "./Context";
+import AddFolder from "./components/AddFolder";
 import "./App.css";
 
 export class App extends Component {
@@ -92,6 +93,8 @@ export class App extends Component {
             <Route path="/folder/:folderId" component={FolderView} />
 
             <Route path="/notes/:noteId" component={NoteView} />
+
+            <Route path="/AddFolder" component={AddFolder} />
 
             <Route component={NotFound} />
           </Switch>

@@ -1,6 +1,7 @@
 import React from "react";
 import Folder from "./Folder";
 import Context from "../Context";
+import { Link } from "react-router-dom";
 
 export default class Folders extends React.Component {
   static contextType = Context;
@@ -18,7 +19,9 @@ export default class Folders extends React.Component {
             />
           );
         })}
-        <button>Add new folder</button>
+        <Link to="/AddFolder">
+          <button>Add Folder</button>
+        </Link>
       </div>
     );
   }
