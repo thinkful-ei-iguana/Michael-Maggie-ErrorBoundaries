@@ -6,7 +6,8 @@ const Context = React.createContext({
   delete: function() {},
   fetchFolders: function() {},
   fetchNotes: function() {},
-  changeAppFolders: function() {}
+  changeAppFolders: function() {},
+  changeAppNotes: function() {}
 });
 
 export default Context;

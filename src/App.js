@@ -82,6 +82,16 @@ export class App extends Component {
     );
   };
 
+  addNewNote = newNoteData => {
+    console.log(newNoteData);
+    this.setState(
+      {
+        notes: [...this.state.notes, newNoteData]
+      },
+      () => this.props.history.push("/")
+    );
+  };
+
   render() {
     const contextValue = {
       folders: this.state.folders,
@@ -89,7 +99,8 @@ export class App extends Component {
       delete: this.delete,
       fetchFolders: this.fetchFolders,
       fetchNotes: this.fetchNotes,
-      changeAppFolders: this.addNewFolder
+      changeAppFolders: this.addNewFolder,
+      changeAppNotes: this.addNewNote
     };
 
     return (
