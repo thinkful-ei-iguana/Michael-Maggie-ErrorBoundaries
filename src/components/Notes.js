@@ -1,6 +1,7 @@
 import React from "react";
 import Note from "./Note";
 import Context from "../Context";
+import { Link } from 'react-router-dom';
 
 export default class Notes extends React.Component {
   static contextType = Context;
@@ -31,7 +32,6 @@ export default class Notes extends React.Component {
                 id={note.id}
                 onClick={event => {
                   event.preventDefault();
-                  event.stopPropagation();
                   this.context.delete(event.target.id);
                 }}
               >
@@ -40,7 +40,9 @@ export default class Notes extends React.Component {
             </div>
           );
         })}
-        <button>Add new note</button>
+        <Link to='/AddNote'>
+          <button>Add new note</button>
+        </Link>
       </div>
     );
   }
