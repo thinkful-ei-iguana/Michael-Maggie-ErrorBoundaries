@@ -20,7 +20,7 @@ export default class Notes extends React.Component {
       <div>
         {filteredNotes.map(note => {
           return (
-            <div className="note">
+            <div className="note" key={note.id}>
               <Note
                 key={note.id}
                 id={note.id}
