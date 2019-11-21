@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Context from "../Context";
 import nextId from "react-id-generator";
+import PropTypes from "prop-types";
 
 class AddNote extends Component {
   static contextType = Context;
@@ -138,5 +139,8 @@ class AddNote extends Component {
     );
   }
 }
+AddNote.propTypes = {
+  history: PropTypes.object
+};
 
 export default AddNote;

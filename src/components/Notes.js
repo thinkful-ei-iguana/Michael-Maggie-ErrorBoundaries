@@ -1,7 +1,8 @@
 import React from "react";
 import Note from "./Note";
 import Context from "../Context";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default class Notes extends React.Component {
   static contextType = Context;
@@ -40,10 +41,15 @@ export default class Notes extends React.Component {
             </div>
           );
         })}
-        <Link to='/AddNote'>
+        <Link to="/AddNote">
           <button>Add new note</button>
         </Link>
       </div>
     );
   }
 }
+
+Notes.propTypes = {
+  history: PropTypes.object,
+  match: PropTypes.object
+};

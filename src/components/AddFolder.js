@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import nextId from "react-id-generator";
 import Context from "../Context";
+import PropTypes from "prop-types";
 
 class AddFolder extends Component {
   constructor(props) {
@@ -93,5 +94,8 @@ class AddFolder extends Component {
     );
   }
 }
+AddFolder.propTypes = {
+  history: PropTypes.object
+};
 
 export default AddFolder;

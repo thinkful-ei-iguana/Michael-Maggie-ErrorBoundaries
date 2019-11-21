@@ -1,6 +1,7 @@
 import React from "react";
 import Folders from "./Folders";
 import Notes from "./Notes";
+import PropTypes from "prop-types";
 
 export default function FolderView(props) {
   return (
@@ -14,3 +15,8 @@ export default function FolderView(props) {
     </div>
   );
 }
+
+FolderView.propTypes = {
+  history: PropTypes.object,
+  match: PropTypes.object
+};

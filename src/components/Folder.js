@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function Folder(props) {
   return (
@@ -10,3 +11,10 @@ export default function Folder(props) {
     </Link>
   );
 }
+
+Folder.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  history: PropTypes.object,
+  match: PropTypes.object
+};

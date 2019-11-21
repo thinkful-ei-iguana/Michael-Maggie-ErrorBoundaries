@@ -2,6 +2,7 @@ import React from "react";
 import NotFound from "./NotFound";
 import Note from "./Note";
 import Context from "../Context";
+import PropTypes from "prop-types";
 
 export default class NoteView extends React.Component {
   static contextType = Context;
@@ -43,3 +44,8 @@ export default class NoteView extends React.Component {
     }
   }
 }
+
+NoteView.propTypes = {
+  match: PropTypes.object,
+  history: PropTypes.object
+};

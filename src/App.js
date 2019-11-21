@@ -8,6 +8,7 @@ import Context from "./Context";
 import AddFolder from "./components/AddFolder";
 import AddNote from "./components/AddNote";
 import "./App.css";
+import PropTypes from "prop-types";
 
 export class App extends Component {
   constructor(props) {
@@ -129,5 +130,9 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  history: PropTypes.object
+};
 
 export default withRouter(App);
