@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Context from "../Context";
-import nextId from "react-id-generator";
 import PropTypes from "prop-types";
 
 class AddNote extends Component {
@@ -15,20 +14,13 @@ class AddNote extends Component {
         touched: false
       },
       content: {
-        value: "",
-        touched: false
+        value: ""
       },
       folderId: {
-        value: "",
-        touched: false
-      },
-      id: {
-        value: "",
-        touched: false
+        value: ""
       },
       modified: {
-        value: "",
-        touched: false
+        value: ""
       },
       error: null,
       baseURL: "http://localhost:9090/notes"
@@ -38,10 +30,8 @@ class AddNote extends Component {
   setStateName = name => {
     this.setState({
       name: {
-        value: name
-      },
-      id: {
-        value: nextId()
+        value: name,
+        touched: true
       },
       modified: {
         value: new Date()
@@ -63,6 +53,12 @@ class AddNote extends Component {
         value: folderId
       }
     });
+  };
+
+  validateName = name => {
+    if (name.length === 0) {
+      return "Name is required";
+    }
   };
 
   readyInputForAPI = e => {
@@ -111,6 +107,7 @@ class AddNote extends Component {
             id="note-name"
             onChange={e => this.setStateName(e.target.value)}
           />
+          {this.state.name.touched && <Validation}
         </label>
         <label htmlFor="note-content">
           Note content:
@@ -129,7 +126,11 @@ class AddNote extends Component {
             </option>
           ))}
         </select>
-        <button type="button" onClick={() => this.props.history.goBack()}>
+        <button
+          type="button"
+          disabled={this.validateName()}
+          onClick={() => this.props.history.goBack()}
+        >
           Cancel
         </button>
         <button type="submit" className="submit-button">

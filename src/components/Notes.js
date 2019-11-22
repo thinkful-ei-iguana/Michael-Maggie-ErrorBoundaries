@@ -3,6 +3,7 @@ import Note from "./Note";
 import Context from "../Context";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import NoteError from "./NoteError";
 
 export default class Notes extends React.Component {
   static contextType = Context;
@@ -21,23 +22,25 @@ export default class Notes extends React.Component {
         {filteredNotes.map(note => {
           return (
             <div className="note" key={note.id}>
-              <Note
-                key={note.id}
-                id={note.id}
-                name={note.name}
-                modified={note.modified}
-                history={this.props.history}
-                match={this.props.match}
-              />
-              <button
-                id={note.id}
-                onClick={event => {
-                  event.preventDefault();
-                  this.context.delete(event.target.id);
-                }}
-              >
-                Delete
-              </button>
+              <NoteError>
+                <Note
+                  key={note.id}
+                  id={note.id}
+                  name={note.name}
+                  modified={note.modified}
+                  history={this.props.history}
+                  match={this.props.match}
+                />
+                <button
+                  id={note.id}
+                  onClick={event => {
+                    event.preventDefault();
+                    this.context.delete(event.target.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </NoteError>
             </div>
           );
         })}

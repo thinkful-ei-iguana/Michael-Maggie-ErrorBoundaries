@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class NoteError extends Component {
+class FolderError extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ class NoteError extends Component {
     if (this.state.hasError) {
       return (
         <div>
-          <h2>Could not display this Note.</h2>
+          <h2>Could not display this Folder.</h2>
           <button>Go Home</button>
         </div>
       );
@@ -24,4 +24,4 @@ class NoteError extends Component {
     return this.props.children;
   }
 }
-export default NoteError;
+export default FolderError;
