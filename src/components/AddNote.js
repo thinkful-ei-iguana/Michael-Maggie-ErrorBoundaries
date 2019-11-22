@@ -100,46 +100,47 @@ class AddNote extends Component {
           this.readyInputForAPI(e);
         }}
       >
-        <label htmlFor="note-name">
-          Name this note:
-          <input
-            type="text"
-            name="name"
-            id="note-name"
-            onChange={e => this.setStateName(e.target.value)}
-          />
-          {this.state.name.touched && <p>"Name field is required"</p>}
-        </label>
-        <label htmlFor="note-content">
-          Note content:
-          <input
-            type="text"
-            name="content"
-            id="note-content"
-            onChange={e => this.setStateContent(e.target.value)}
-          />
-        </label>
-        <select onChange={e => this.setStateFolderId(e.target.value)}>
-          Folder
-          {this.context.folders.map(folder => (
-            <option value={folder.id} name={folder.name}>
-              {folder.name}
-            </option>
-          ))}
-        </select>
-        <button
-          type="button"
-          onClick={() => this.props.history.goBack()}
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="submit-button"
-          disabled={this.validateName()}
-        >
-          Submit
-        </button>
+        <div className="form-inputs">
+          <label htmlFor="note-name">
+            Name this note:
+            <input
+              type="text"
+              name="name"
+              id="note-name"
+              onChange={e => this.setStateName(e.target.value)}
+            />
+            {this.state.name.touched && <p>"Name field is required"</p>}
+          </label>
+          <label htmlFor="note-content">
+            Note content:
+            <input
+              type="text"
+              name="content"
+              id="note-content"
+              onChange={e => this.setStateContent(e.target.value)}
+            />
+          </label>
+          <select onChange={e => this.setStateFolderId(e.target.value)}>
+            Folder
+            {this.context.folders.map(folder => (
+              <option value={folder.id} name={folder.name}>
+                {folder.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-buttons">
+          <button type="button" onClick={() => this.props.history.goBack()}>
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="submit-button"
+            disabled={this.validateName()}
+          >
+            Submit
+          </button>
+        </div>
       </form>
     );
   }

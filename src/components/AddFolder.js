@@ -74,7 +74,7 @@ class AddFolder extends Component {
         }}
       >
         <label htmlFor="new-folder">
-          Folder Name
+          Folder Name:
           <input
             type="text"
             name="folder"
@@ -82,7 +82,7 @@ class AddFolder extends Component {
             onChange={e => this.settingStateFromFormInput(e.target.value)}
           />
         </label>
-        <div>
+        <div className="form-buttons">
           <button type="button" onClick={() => this.props.history.goBack()}>
             Cancel
           </button>
