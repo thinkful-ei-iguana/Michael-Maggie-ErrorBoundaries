@@ -117,6 +117,7 @@ class AddNote extends Component {
               type="text"
               name="content"
               id="note-content"
+              className="content"
               onChange={e => this.setStateContent(e.target.value)}
             />
           </label>
