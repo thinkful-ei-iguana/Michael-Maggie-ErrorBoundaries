@@ -55,7 +55,8 @@ class AddNote extends Component {
     });
   };
 
-  validateName = name => {
+  validateName = () => {
+    const name = this.state.name.value.trim();
     if (name.length === 0) {
       return "Name is required";
     }
@@ -107,7 +108,7 @@ class AddNote extends Component {
             id="note-name"
             onChange={e => this.setStateName(e.target.value)}
           />
-          {this.state.name.touched && <Validation}
+          {this.state.name.touched && <p>"Name field is required"</p>}
         </label>
         <label htmlFor="note-content">
           Note content:
@@ -128,12 +129,15 @@ class AddNote extends Component {
         </select>
         <button
           type="button"
-          disabled={this.validateName()}
           onClick={() => this.props.history.goBack()}
         >
           Cancel
         </button>
-        <button type="submit" className="submit-button">
+        <button
+          type="submit"
+          className="submit-button"
+          disabled={this.validateName()}
+        >
           Submit
         </button>
       </form>
