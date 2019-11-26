@@ -109,7 +109,7 @@ export class App extends Component {
         <div>
           <header>
             <Link to="/">
-              <h2>Noteful</h2>
+              <h1>Noteful</h1>
             </Link>
           </header>
           <Switch>

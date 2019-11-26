@@ -6,7 +6,7 @@ export default function Folder(props) {
   return (
     <Link to={`/folder/${props.id}`}>
       <div className="Folder" id={props.id}>
-        <h3 id={props.id}>{props.name}</h3>
+        <h3>{props.name}</h3>
       </div>
     </Link>
   );

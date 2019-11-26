@@ -11,8 +11,8 @@ export default class Note extends React.Component {
 
     return (
       <Link to={`/notes/${this.props.id}`}>
-        <div id={this.props.id}>
-          <h3 id={this.props.id}>{this.props.name}</h3>
+        <div id={this.props.modified}>
+          <h3>{this.props.name}</h3>
           <p>{readableDate}</p>
         </div>
       </Link>
